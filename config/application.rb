@@ -17,5 +17,6 @@ module GolfScores
     # the framework and any gems in your application.
 
     config.x.number_of_holes = ENV['HOLES'] || 6
+    config.x.password = ENV['PASSWORD']
   end
 end
