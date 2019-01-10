@@ -7,10 +7,11 @@ else
 end
 %>
 <% holes.each do |hole| %>
-  <h2>Hole <%= hole %></h2>
+  <section>
   <% body = @score.holes[hole.to_s]['body'] %>
-  <h3>Score: <%= body.chars.count %></h3>
-  <pre>
+  <h2>Hole <%= hole %> <small class='text-muted'>Score: <%= body.chars.count %></small></h2>
+  <code>
 <%= body %>
-  </pre>
+  </code>
+  </section>
 <% end %>
