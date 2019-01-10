@@ -1,0 +1,22 @@
+<h1>Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <% 1.upto(Rails.configuration.x.number_of_holes) do |hole| %>
+        <th><%= hole %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <th><%= link_to score.name, score %></th>
+        <% 1.upto(Rails.configuration.x.number_of_holes) do |hole| %>
+          <td><%= link_to hole_score(score.holes[hole.to_s]), score_path(score, hole: hole) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

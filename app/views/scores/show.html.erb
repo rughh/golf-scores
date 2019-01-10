@@ -1,0 +1,16 @@
+<h1><%= @score.name %></h1>
+
+<% if params[:hole]
+  holes = [params[:hole]]
+else
+  holes = 1.upto(Rails.configuration.x.number_of_holes).to_a
+end
+%>
+<% holes.each do |hole| %>
+  <h2>Hole <%= hole %></h2>
+  <% body = @score.holes[hole.to_s]['body'] %>
+  <h3>Score: <%= body.chars.count %></h3>
+  <pre>
+<%= body %>
+  </pre>
+<% end %>
