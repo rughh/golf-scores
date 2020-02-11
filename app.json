@@ -1,0 +1,23 @@
+{
+  "name": "ruby-golf-scoreboard",
+  "description": "An application to keep track of the scores from the ruby golf application",
+  "keywords": [
+    "ruby-golf"
+  ],
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load"
+  },
+  "env": {
+    "HOLES": {
+      "description": "The amount of holes which are to play",
+      "value": "6"
+    },
+    "PASSWORD": {
+      "description": "The password to see the solotions",
+      "required": true
+    }
+  }
+}
